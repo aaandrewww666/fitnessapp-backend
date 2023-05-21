@@ -9,6 +9,7 @@ import io.ktor.server.application.*
 import java.util.concurrent.TimeUnit
 
 fun Application.configureMonitoring() {
+    //настройка плагина с мониторингом работы сервера
     install(DropwizardMetrics) {
         Slf4jReporter.forRegistry(registry)
             .outputTo(this@configureMonitoring.log)

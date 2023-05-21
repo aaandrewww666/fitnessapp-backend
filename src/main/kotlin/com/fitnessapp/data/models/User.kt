@@ -9,11 +9,11 @@ data class User(
     val username: String,
     val password: String,
     val salt: String
-)
+) //класс, хранящий данные о пользователе
 
 object UsersTable : IntIdTable("users") {
     val login = varchar("login",45)
     val password = varchar("password",64)
     val salt = varchar("salt", 64)
     val username = varchar("username",45)
-}
+} //таблица users в БД

@@ -11,7 +11,7 @@ class ValidateLogin {
                     "\\." +
                     "[a-zA-Z\\d][a-zA-Z\\d\\-]{0,4}" +
                     ")+")
-    }
+    } //класс проверки валидации логина
 
     operator fun invoke(email: String): Boolean {
         return (email.matches(EMAIL_REGEX))

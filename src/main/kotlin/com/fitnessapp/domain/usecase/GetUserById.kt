@@ -6,10 +6,10 @@ import com.fitnessapp.domain.responses.UserResponse
 import com.fitnessapp.utils.ServiceResult
 
 class GetUserById (private val userDao: UserImpl) {
-        suspend operator fun invoke(id: Int): UserResponse {
-            return when (val user = userDao.getUserById(id)) {
-                is ServiceResult.Success -> UserResponse(user.data, emptyList())
-                is ServiceResult.Error -> UserResponse(null, listOf(ResponseErrors(user.error, user.error.message)))
-            }
+    suspend operator fun invoke(id: Int): UserResponse {
+        return when (val user = userDao.getUserById(id)) {
+            is ServiceResult.Success -> UserResponse(user.data)
+            is ServiceResult.Error -> UserResponse(null)
         }
     }
+}

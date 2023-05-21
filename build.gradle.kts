@@ -29,17 +29,21 @@ dependencies {
     implementation("mysql:mysql-connector-java:8.0.32") //mysql
 
     implementation("org.jetbrains.exposed:exposed-java-time:0.40.1")
+
     implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-auth-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-auth-jwt-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-metrics-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-call-logging-jvm:$ktor_version")
+
     implementation("io.ktor:ktor-server-content-negotiation-jvm:$ktor_version")
     implementation("io.ktor:ktor-serialization:$ktor_version")
-    implementation("io.ktor:ktor-serialization-kotlinx-cbor:$ktor_version")
+    implementation("io.ktor:ktor-serialization-gson:$ktor_version")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
+
     implementation("org.jetbrains.exposed:exposed-core:$exposed_version")
     implementation("org.jetbrains.exposed:exposed-jdbc:$exposed_version")
+
     implementation("com.h2database:h2:$h2_version")
     implementation("io.ktor:ktor-server-cio-jvm:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")

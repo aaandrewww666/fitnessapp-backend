@@ -8,8 +8,8 @@ import com.fitnessapp.utils.ServiceResult
 class GetUserByLogin(private val userDao: UserImpl) {
     suspend operator fun invoke(login: String): UserResponse {
         return when (val user = userDao.getUserByLogin(login)) {
-            is ServiceResult.Success -> UserResponse(user.data, emptyList())
-            is ServiceResult.Error -> UserResponse(null, listOf(ResponseErrors(user.error, user.error.message)))
+            is ServiceResult.Success -> UserResponse(user.data)
+            is ServiceResult.Error -> UserResponse(null)
         }
     }
 }

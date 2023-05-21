@@ -5,7 +5,7 @@ import com.fitnessapp.utils.ErrorCode
 import com.fitnessapp.utils.ServiceResult
 
 class ValidateUser {
-
+    //класс проверки валидации пользователя
     operator fun invoke(user: User): ServiceResult<Boolean> {
         return if (user.userLogin.isBlank() && user.password.isBlank()) {
             ServiceResult.Error(ErrorCode.BADLY_FORMATTED_INPUT)

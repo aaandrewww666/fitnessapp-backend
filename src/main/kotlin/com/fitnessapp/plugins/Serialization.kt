@@ -1,21 +1,15 @@
 package com.fitnessapp.plugins
 
+import io.ktor.serialization.gson.*
 import io.ktor.serialization.kotlinx.json.*
-import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.response.*
 import io.ktor.server.application.*
-import io.ktor.server.routing.*
-import kotlinx.serialization.json.Json
+import io.ktor.server.plugins.contentnegotiation.*
 
 fun Application.configureSerialization() {
+    //настройка сериализации
     install(ContentNegotiation) {
-        json(Json {
-            ignoreUnknownKeys = true
-        })
-    }
-    routing {
-        get("/json/kotlinx-serialization") {
-            call.respond(mapOf("hello" to "world"))
+        gson {
+            setPrettyPrinting()
         }
     }
 }

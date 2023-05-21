@@ -1,20 +1,19 @@
 package com.fitnessapp.domain.usecase
 
 import com.fitnessapp.data.UserDao
-import com.fitnessapp.data.UserHeightDao
+import com.fitnessapp.data.UserDataDao
 import com.fitnessapp.data.UserWeightDao
 import com.fitnessapp.domain.responses.DeleteResponse
 import com.fitnessapp.domain.responses.ResponseErrors
 import com.fitnessapp.utils.ServiceResult
 
-class DeleteUser(private val userDao: UserDao, private val userHeightDao: UserHeightDao, private val userWeightDao: UserWeightDao) {
+class DeleteUser(private val userDao: UserDao, private val userDataDao: UserDataDao, private val userWeightDao: UserWeightDao) {
     suspend operator fun invoke(id : Int): DeleteResponse {
-        return when (val resultHeightDelete = userHeightDao.deleteUserHeight(id)) {
+        return when (val resultHeightDelete = userDataDao.deleteUserData(id)) {
             is ServiceResult.Error -> DeleteResponse(
                 errors = listOf(
                     ResponseErrors(
-                        resultHeightDelete.error,
-                        resultHeightDelete.error.message
+                        resultHeightDelete.error
                     )
                 )
             )
@@ -22,8 +21,7 @@ class DeleteUser(private val userDao: UserDao, private val userHeightDao: UserHe
                 is ServiceResult.Error -> DeleteResponse(
                     errors = listOf(
                         ResponseErrors(
-                            resultWeightDelete.error,
-                            resultWeightDelete.error.message
+                            resultWeightDelete.error
                         )
                     )
                 )
@@ -32,8 +30,7 @@ class DeleteUser(private val userDao: UserDao, private val userHeightDao: UserHe
                     is ServiceResult.Error -> DeleteResponse(
                         errors = listOf(
                             ResponseErrors(
-                                result.error,
-                                result.error.message
+                                result.error
                             )
                         )
                     )

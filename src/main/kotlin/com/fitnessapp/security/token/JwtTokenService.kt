@@ -5,7 +5,9 @@ import com.auth0.jwt.algorithms.Algorithm
 import java.util.*
 
 class JwtTokenService : TokenService {
+    //реализация TokenService
     override fun generate(config : TokenConfig, vararg claims : TokenClaim) : String {
+        //функция генерации токена
         var token = JWT.create()
             .withAudience(config.audience)
             .withIssuer(config.issuer)

@@ -12,8 +12,7 @@ class DeleteUserWeightByDate (private val userWeightDao: UserWeightDao) {
             is ServiceResult.Error -> DeleteResponse(
                 errors = listOf(
                     ResponseErrors(
-                        result.error,
-                        result.error.message
+                        result.error
                     )
                 )
             )

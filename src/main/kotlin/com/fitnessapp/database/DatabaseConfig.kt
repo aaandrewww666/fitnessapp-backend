@@ -7,13 +7,11 @@ sealed class DatabaseConfig(
     val user: String,
     val password: String
 ) {
-
     object MySqlConfig: DatabaseConfig(
         host = "127.0.0.1",
         port = 3306,
         schema = "diploma",
         user = "fitnessClient",
         password = "JHGfvbhjhgfF#23"
-    )
-
+    ) //объект настройки доступа к MySql
 }

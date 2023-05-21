@@ -1,9 +1,7 @@
 package com.fitnessapp.security.token
 
-import com.fitnessapp.security.token.TokenClaim
-import com.fitnessapp.security.token.TokenConfig
-
 interface TokenService {
+    //интерфейс для генерации токена
     fun generate(
         config: TokenConfig,
         vararg claims: TokenClaim

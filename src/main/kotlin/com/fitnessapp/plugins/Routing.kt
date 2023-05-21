@@ -1,6 +1,6 @@
 package com.fitnessapp.plugins
 
-import com.fitnessapp.data.UserHeightImpl
+import com.fitnessapp.data.UserDataImpl
 import io.ktor.server.routing.*
 import io.ktor.server.application.*
 import com.fitnessapp.data.UserImpl
@@ -12,17 +12,17 @@ import com.fitnessapp.security.token.TokenService
 
 fun Application.configureRouting(
     userImpl: UserImpl,
-    userHeightImpl: UserHeightImpl,
+    userHeightImpl: UserDataImpl,
     userWeightImpl: UserWeightImpl,
     hashingService: HashingService,
     tokenConfig: TokenConfig,
     tokenService: TokenService
 ) {
+    //настройка роутингов
     routing {
         userRoutes(userImpl, userWeightImpl, userHeightImpl)
-        userHeightRoutes(userHeightImpl)
+        userDataRoutes(userHeightImpl)
         userWeightRoutes(userWeightImpl)
-        authenticate()
         singIn(hashingService, tokenService, userImpl, tokenConfig)
         singUp(hashingService, userImpl)
     }
